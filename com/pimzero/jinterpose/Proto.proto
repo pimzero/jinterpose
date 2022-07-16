@@ -1,0 +1,71 @@
+syntax = "proto2";
+
+package com.pimzero.jinterpose;
+
+option java_package = "com.pimzero.jinterpose";
+option java_outer_classname = "Proto";
+
+message Matcher {
+	optional string classname = 1;
+	optional string methodname = 2;
+}
+
+message Matcher_expr {
+	message Matcher_or {
+		repeated Matcher_expr expr = 1;
+	}
+
+	message Matcher_and {
+		repeated Matcher_expr expr = 1;
+	}
+
+	oneof expr {
+		Matcher match = 1;
+		Matcher_or or = 2;
+		Matcher_and and = 3;
+		Matcher_expr not = 4;
+	}
+}
+
+message Action {
+	message Do {
+		message DoFieldInterposition {
+			optional string src_name = 1;
+			optional string src_owner = 2;
+			optional string dst_name = 3;
+			optional string dst_owner = 4;
+		}
+		oneof action {
+			DoFieldInterposition field_interposition = 1;
+		}
+	}
+	optional Matcher_expr when = 1;
+	repeated Do do = 2;
+};
+
+message Configuration {
+	repeated Action action = 1;
+}
+
+//message Person {
+//  optional string name = 1;
+//  optional int32 id = 2;
+//  optional string email = 3;
+//
+//  enum PhoneType {
+//    MOBILE = 0;
+//    HOME = 1;
+//    WORK = 2;
+//  }
+//
+//  message PhoneNumber {
+//    optional string number = 1;
+//    optional PhoneType type = 2 [default = HOME];
+//  }
+//
+//  repeated PhoneNumber phones = 4;
+//}
+//
+//message AddressBook {
+//  repeated Person people = 1;
+//}
