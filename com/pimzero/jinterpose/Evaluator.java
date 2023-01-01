@@ -3,7 +3,7 @@ package com.pimzero.jinterpose;
 import java.lang.IllegalArgumentException;
 import com.pimzero.jinterpose.Proto;
 
-class Evaluator {
+public class Evaluator {
 	static public boolean eval(Proto.Matcher_expr expr, Proto.Matcher val) {
 		switch (expr.getExprCase()) {
 			case MATCH:

@@ -29,14 +29,29 @@ message Matcher_expr {
 
 message Action {
 	message Do {
+		/*
+		 * Replace references to a field to another field
+		 * src_name: name of the Field to replace
+		 * src_owner: class name of the Field to replace
+		 * dst_name: name of the new Field to use
+		 * dst_owner: class name of the new Field to use
+		 */
 		message DoFieldInterposition {
 			optional string src_name = 1;
 			optional string src_owner = 2;
 			optional string dst_name = 3;
 			optional string dst_owner = 4;
 		}
+
+		/*
+		 * Unsupported: Log method on entry
+		 */
+		message DoLogMethod {
+		}
+
 		oneof action {
 			DoFieldInterposition field_interposition = 1;
+			DoLogMethod log_method = 2;
 		}
 	}
 	optional Matcher_expr when = 1;
@@ -46,26 +61,3 @@ message Action {
 message Configuration {
 	repeated Action action = 1;
 }
-
-//message Person {
-//  optional string name = 1;
-//  optional int32 id = 2;
-//  optional string email = 3;
-//
-//  enum PhoneType {
-//    MOBILE = 0;
-//    HOME = 1;
-//    WORK = 2;
-//  }
-//
-//  message PhoneNumber {
-//    optional string number = 1;
-//    optional PhoneType type = 2 [default = HOME];
-//  }
-//
-//  repeated PhoneNumber phones = 4;
-//}
-//
-//message AddressBook {
-//  repeated Person people = 1;
-//}

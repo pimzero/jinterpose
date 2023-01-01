@@ -1,4 +1,4 @@
-package com.pimzero.jinterpose;
+package com.pimzero.jinterpose.action;
 
 import java.lang.System;
 
@@ -11,8 +11,9 @@ import org.objectweb.asm.RecordComponentVisitor;
 import org.objectweb.asm.Opcodes;
 
 import com.pimzero.jinterpose.Proto;
+import com.pimzero.jinterpose.Evaluator;
 
-class FieldInterpositionClassVisitor extends ClassVisitor {
+public class FieldInterpositionClassVisitor extends ClassVisitor {
 	private Proto.Matcher_expr when;
 	private Proto.Matcher.Builder current;
 
@@ -48,7 +49,6 @@ class FieldInterpositionClassVisitor extends ClassVisitor {
 		this.dst_owner = dst_owner;
 		this.dst_name = dst_name;
 	}
-
 
 	@Override
 	public MethodVisitor visitMethod(

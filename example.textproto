@@ -1,0 +1,24 @@
+action {
+	when {
+		and {
+			expr {
+				match {
+					classname: "com/google/security/zynamics/bindiff/gui/tabpanels/TabPanelManager"
+				}
+			}
+			expr {
+				match {
+					methodname: "addTab"
+				}
+			}
+		}
+	}
+	do {
+		field_interposition {
+			src_owner: "com/google/security/zynamics/bindiff/gui/tabpanels/TabPanelManager"
+			src_name: "WORKSPACE_TAB_COLOR"
+			dst_owner: "java/awt/Color"
+			dst_name: "BLACK"
+		}
+	}
+}

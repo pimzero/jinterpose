@@ -1,29 +1,20 @@
 package com.pimzero.jinterpose;
 
-import java.lang.instrument.Instrumentation;
-import java.lang.instrument.IllegalClassFormatException;
-import java.lang.instrument.ClassFileTransformer;
-import java.security.ProtectionDomain;
-
-import org.objectweb.asm.ClassReader;
-import org.objectweb.asm.ClassWriter;
-import org.objectweb.asm.ClassVisitor;
-
-import java.util.HashMap;
-
-import com.pimzero.jinterpose.FieldInterpositionClassVisitor;
-
+import com.google.protobuf.TextFormat;
+import com.pimzero.jinterpose.action.FieldInterpositionClassVisitor;
+import com.pimzero.jinterpose.action.LogMethodClassVisitor;
 import com.pimzero.jinterpose.Proto;
-
-import java.lang.System;
-
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
-import java.io.IOException;
-
 import java.lang.IllegalArgumentException;
-
-import com.google.protobuf.TextFormat;
+import java.lang.instrument.ClassFileTransformer;
+import java.lang.instrument.IllegalClassFormatException;
+import java.lang.instrument.Instrumentation;
+import java.lang.System;
+import java.security.ProtectionDomain;
+import org.objectweb.asm.ClassReader;
+import org.objectweb.asm.ClassVisitor;
+import org.objectweb.asm.ClassWriter;
 
 class Agent {
 	public static void premain(String agentArgs, Instrumentation inst) throws Exception {
@@ -62,6 +53,11 @@ class Agent {
 								cw, action.getWhen(), current,
 								tmp.getSrcOwner(), tmp.getSrcName(),
 								tmp.getDstOwner(), tmp.getDstName());
+							break;
+						case LOG_METHOD:
+							cv = new LogMethodClassVisitor(
+								cw, action.getWhen(), current,
+								itr.getLogMethod());
 							break;
 						default:
 							throw new IllegalArgumentException();
