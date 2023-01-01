@@ -88,8 +88,5 @@ $ java -javaagent:out/agent.jar=example.textproto
 This works by applying all the transformations defined in the `do` section for
 all the methods matched by the `when` close of the config.
 
-## Features
-
-Supported actions:
-
- - 
+For a list of supported actions, see
+[com/pimzero/jinterpose/Proto.proto](com/pimzero/jinterpose/Proto.proto)
