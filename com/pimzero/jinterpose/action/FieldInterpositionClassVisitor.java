@@ -38,16 +38,16 @@ public class FieldInterpositionClassVisitor extends ClassVisitor {
 			ClassVisitor cv,
 			Proto.Matcher_expr when,
 			Proto.Matcher.Builder current,
-			String src_owner, String src_name, String dst_owner, String dst_name) {
+			Proto.Action.Do.DoFieldInterposition config) {
 		super(Opcodes.ASM9, cv);
 
 		this.when = when;
 		this.current = current;
 
-		this.src_owner = src_owner;
-		this.src_name = src_name;
-		this.dst_owner = dst_owner;
-		this.dst_name = dst_name;
+		this.src_owner = config.getSrcOwner();
+		this.src_name = config.getSrcName();
+		this.dst_owner = config.getDstOwner();
+		this.dst_name = config.getDstName();
 	}
 
 	@Override

@@ -48,11 +48,9 @@ class Agent {
 					for (var itr: action.getDoList()) {
 						switch (itr.getActionCase()) {
 						case FIELD_INTERPOSITION:
-							var tmp = itr.getFieldInterposition();
 							cv = new FieldInterpositionClassVisitor(
 								cw, action.getWhen(), current,
-								tmp.getSrcOwner(), tmp.getSrcName(),
-								tmp.getDstOwner(), tmp.getDstName());
+								itr.getFieldInterposition());
 							break;
 						case LOG_METHOD:
 							cv = new LogMethodClassVisitor(
