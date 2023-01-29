@@ -7,7 +7,6 @@ JAVACFLAGS=-Xlint:deprecation
 CLASS=\
       com/pimzero/jinterpose/action/FieldInterpositionClassVisitor.class \
       com/pimzero/jinterpose/Agent.class \
-      com/pimzero/jinterpose/FieldDescription.class \
       com/pimzero/jinterpose/Proto.class
 
 out/agent.jar: $(CLASS) jinterpose.manifest
