@@ -16,6 +16,7 @@ out/agent.jar: $(CLASS) jinterpose.manifest
 com/pimzero/jinterpose/Agent.class: \
 	com/pimzero/jinterpose/action/FieldInterpositionClassVisitor.class \
 	com/pimzero/jinterpose/action/LogMethodClassVisitor.class \
+	com/pimzero/jinterpose/action/NoopClassVisitor.class \
 	com/pimzero/jinterpose/Proto.class
 
 com/pimzero/jinterpose/Proto.class: \
@@ -35,6 +36,10 @@ com/pimzero/jinterpose/action/LogMethodClassVisitor.class: \
 	com/google/protobuf \
 	org/objectweb/asm \
 	org/objectweb/asm/commons
+
+com/pimzero/jinterpose/action/NoopClassVisitor.class: \
+	com/google/protobuf \
+	org/objectweb/asm
 
 # Dependencies
 ASM_JAR=asm-9.3.jar

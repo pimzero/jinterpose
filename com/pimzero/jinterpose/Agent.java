@@ -3,6 +3,7 @@ package com.pimzero.jinterpose;
 import com.google.protobuf.TextFormat;
 import com.pimzero.jinterpose.action.FieldInterpositionClassVisitor;
 import com.pimzero.jinterpose.action.LogMethodClassVisitor;
+import com.pimzero.jinterpose.action.NoopClassVisitor;
 import com.pimzero.jinterpose.Proto;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
@@ -56,6 +57,11 @@ class Agent {
 							cv = new LogMethodClassVisitor(
 								cw, action.getWhen(), current,
 								itr.getLogMethod());
+							break;
+						case NOOP:
+							cv = new NoopClassVisitor(
+								cw, action.getWhen(), current,
+								itr.getNoop());
 							break;
 						default:
 							throw new IllegalArgumentException();

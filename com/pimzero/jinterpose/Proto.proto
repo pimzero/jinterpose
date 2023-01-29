@@ -66,9 +66,17 @@ message Action {
 			optional string format = 2 [default = "{0}.{1} {2}"];
 		}
 
+		/*
+		 * Do nothing. This is only to have an bare bones example of
+		 * instrumentation tool.
+		 */
+		message DoNoop {
+		}
+
 		oneof action {
 			DoFieldInterposition field_interposition = 1;
 			DoLogMethod log_method = 2;
+			DoNoop noop = 3;
 		}
 	}
 	optional Matcher_expr when = 1;
