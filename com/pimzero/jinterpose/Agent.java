@@ -1,17 +1,15 @@
 package com.pimzero.jinterpose;
 
 import com.google.protobuf.TextFormat;
-import com.pimzero.jinterpose.action.FieldInterpositionClassVisitor;
-import com.pimzero.jinterpose.action.LogMethodClassVisitor;
-import com.pimzero.jinterpose.action.NoopClassVisitor;
 import com.pimzero.jinterpose.Proto;
+import com.pimzero.jinterpose.action.*;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.lang.IllegalArgumentException;
+import java.lang.System;
 import java.lang.instrument.ClassFileTransformer;
 import java.lang.instrument.IllegalClassFormatException;
 import java.lang.instrument.Instrumentation;
-import java.lang.System;
 import java.security.ProtectionDomain;
 import org.objectweb.asm.ClassReader;
 import org.objectweb.asm.ClassVisitor;

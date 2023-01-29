@@ -3,17 +3,12 @@ package com.pimzero.jinterpose.action;
 import java.lang.System;
 import java.text.MessageFormat;
 
-import org.objectweb.asm.ClassReader;
-import org.objectweb.asm.Attribute;
-import org.objectweb.asm.FieldVisitor;
-import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.ClassVisitor;
-import org.objectweb.asm.RecordComponentVisitor;
+import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
-import org.objectweb.asm.commons.GeneratorAdapter;
 
-import com.pimzero.jinterpose.Proto;
 import com.pimzero.jinterpose.Evaluator;
+import com.pimzero.jinterpose.Proto;
 
 public class LogMethodClassVisitor extends ClassVisitor {
 	private Proto.Matcher_expr when;

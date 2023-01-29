@@ -1,8 +1,7 @@
 package com.pimzero.jinterpose;
 
-import java.lang.IllegalArgumentException;
-import java.util.regex.Pattern;
 import com.pimzero.jinterpose.Proto;
+import java.util.regex.Pattern;
 
 public class Evaluator {
 	static public boolean eval(Proto.Matcher_expr expr, Proto.Matcher val) {

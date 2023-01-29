@@ -14,8 +14,10 @@ The configuration is in [protobuf Text
 Format](https://developers.google.com/protocol-buffers/docs/text-format-spec).
 The format is defined in `com/pimzero/jinterpose/Proto.proto`.
 
-While the user needs to keep in mind low-level Java details in mind while writing the configuration,
-this project aims to describe the instrumentations/transformations in the configuration file.
+While the user needs to keep in mind low-level Java details in mind while
+writing the configuration, this project aims to describe the
+instrumentations/transformations in the configuration file in a "declarative"
+manner.
 
 Dependencies:
 
@@ -25,6 +27,7 @@ Dependencies:
 
 The build system is GNU Makefile, as I am not used to standard Java ecosystem
 tools. This has the following drawbacks:
+
  - Dependencies versions need to be updated manually in the Makefile
  - Dependencies between files need to be explicitly defined manually
 
@@ -86,7 +89,7 @@ $ java -javaagent:out/agent.jar=example.textproto
 ![The Workspace tab has white text on a white background](docs/with.png)
 
 This works by applying all the transformations defined in the `do` section for
-all the methods matched by the `when` close of the config.
+all the methods matched by the `when` clause of the config.
 
 For a list of supported actions, see
 [com/pimzero/jinterpose/Proto.proto](com/pimzero/jinterpose/Proto.proto)
