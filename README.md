@@ -22,7 +22,6 @@ manner.
 Dependencies:
 
  - [asm](https://asm.ow2.io/)
- - [asm-common](https://asm.ow2.io/)
  - [protobuf-java](https://search.maven.org/artifact/com.google.protobuf/protobuf-java)
 
 The build system is GNU Makefile, as I am not used to standard Java ecosystem

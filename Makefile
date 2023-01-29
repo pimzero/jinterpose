@@ -41,16 +41,9 @@ ASM_JAR=asm-9.3.jar
 $(ASM_JAR):
 	wget --no-use-server-timestamps https://repository.ow2.org/nexus/content/repositories/snapshots/org/ow2/asm/asm/9.3-SNAPSHOT/asm-9.3-20220403.091850-24.jar -O $@
 
-ASM_COMMON_JAR=asm-common-9.3.jar
-$(ASM_COMMON_JAR):
-	wget --no-use-server-timestamps https://repository.ow2.org/nexus/content/repositories/snapshots/org/ow2/asm/asm-commons/9.3-SNAPSHOT/asm-commons-9.3-20220403.091850-24.jar -O $@
-
 PROTOBUF_JAVA_JAR=protobuf-java-3.21.12.jar
 $(PROTOBUF_JAVA_JAR):
 	wget --no-use-server-timestamps https://repo1.maven.org/maven2/com/google/protobuf/protobuf-java/3.21.12/protobuf-java-3.21.12.jar -O $@
-
-org/objectweb/asm/commons: $(ASM_COMMON_JAR)
-	unzip -D -o $< -d $(VENDOR)
 
 org/objectweb/asm: $(ASM_JAR)
 	unzip -D -o $< -d $(VENDOR)
@@ -70,6 +63,6 @@ com/google/protobuf: $(PROTOBUF_JAVA_JAR)
 all: out/agent.jar
 
 clean:
-	$(RM) -r $(VENDOR) $(OUT) $(ASM_JAR) $(ASM_COMMON_JAR) $(PROTOBUF_JAVA_JAR)
+	$(RM) -r $(VENDOR) $(OUT) $(ASM_JAR) $(PROTOBUF_JAVA_JAR)
 
 .PHONY: all clean
