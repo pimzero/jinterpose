@@ -1,6 +1,7 @@
 package com.pimzero.jinterpose;
 
 import java.lang.IllegalArgumentException;
+import java.util.regex.Pattern;
 import com.pimzero.jinterpose.Proto;
 
 public class Evaluator {
@@ -13,6 +14,8 @@ public class Evaluator {
 				       out = out && cmp.getClassname().equals(val.getClassname());
 				if (cmp.hasMethodname())
 					out = out && cmp.getMethodname().equals(val.getMethodname());
+				if (cmp.hasClassnameRegex())
+					out = out && Pattern.compile(cmp.getClassnameRegex()).matcher(val.getClassname()).matches();
 				return out;
 			case OR:
 				for (var i: expr.getOr().getExprList()) {
@@ -29,6 +32,6 @@ public class Evaluator {
 			case NOT:
 				return !eval(expr.getNot(), val);
 		}
-		throw new IllegalArgumentException();
+		return true;
 	}
 }

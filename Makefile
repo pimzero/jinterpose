@@ -2,6 +2,8 @@ OUT=out/
 VENDOR=vendor
 VPATH=$(OUT):$(VENDOR)
 
+JAVACFLAGS=-Xlint:deprecation
+
 CLASS=\
       com/pimzero/jinterpose/action/FieldInterpositionClassVisitor.class \
       com/pimzero/jinterpose/Agent.class \
@@ -60,7 +62,7 @@ com/google/protobuf: $(PROTOBUF_JAVA_JAR)
 # Pattern Rules
 %.class: %.java
 	mkdir -p $(OUT)
-	javac -cp "$(VENDOR):$(OUT)" -d $(OUT) $<
+	javac $(JAVACFLAGS) -cp "$(VENDOR):$(OUT)" -d $(OUT) $<
 
 %.java: %.proto
 	protoc -I=. --java_out=. $<

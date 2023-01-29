@@ -8,6 +8,7 @@ option java_outer_classname = "Proto";
 message Matcher {
 	optional string classname = 1;
 	optional string methodname = 2;
+	optional string classname_regex = 3;
 }
 
 message Matcher_expr {
@@ -31,6 +32,7 @@ message Action {
 	message Do {
 		/*
 		 * Replace references to a field to another field
+		 *
 		 * src_name: name of the Field to replace
 		 * src_owner: class name of the Field to replace
 		 * dst_name: name of the new Field to use
@@ -44,9 +46,24 @@ message Action {
 		}
 
 		/*
-		 * Unsupported: Log method on entry
+		 * Log on method entry
+		 *
+		 * output_stream: output stream used to log messages. Can be
+		 *                either `STDOUT` or `STDERR`
+		 * format: format of the string printed on method entry. The
+		 *         following template arguments are available:
+		 *         {0} - Current classname
+		 *         {1} - Method name
+		 *         {2} - Method descriptor
+		 *         {3} - Method signature
 		 */
 		message DoLogMethod {
+			enum Output {
+				STDOUT = 1;
+				STDERR = 2;
+			}
+			optional Output output_stream = 1 [default = STDERR];
+			optional string format = 2 [default = "{0}.{1} {2}"];
 		}
 
 		oneof action {

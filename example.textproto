@@ -22,3 +22,9 @@ action {
 		}
 	}
 }
+action {
+	do {
+		log_method {
+		}
+	}
+}
