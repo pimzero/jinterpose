@@ -39,7 +39,7 @@ com/pimzero/jinterpose/action/NoopClassVisitor.class: \
 # Dependencies
 ASM_JAR=asm-9.3.jar
 $(ASM_JAR):
-	wget --no-use-server-timestamps https://repository.ow2.org/nexus/content/repositories/snapshots/org/ow2/asm/asm/9.3-SNAPSHOT/asm-9.3-20220403.091850-24.jar -O $@
+	wget --no-use-server-timestamps https://repository.ow2.org/nexus/content/repositories/releases/org/ow2/asm/asm/9.3/asm-9.3.jar -O $@
 
 PROTOBUF_JAVA_JAR=protobuf-java-3.21.12.jar
 $(PROTOBUF_JAVA_JAR):
