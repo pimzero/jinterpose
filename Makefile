@@ -37,13 +37,15 @@ com/pimzero/jinterpose/action/NoopClassVisitor.class: \
 	org/objectweb/asm
 
 # Dependencies
-ASM_JAR=asm-9.3.jar
+ASM_VER=9.3
+ASM_JAR=asm-$(ASM_VER).jar
 $(ASM_JAR):
-	wget --no-use-server-timestamps https://repository.ow2.org/nexus/content/repositories/releases/org/ow2/asm/asm/9.3/asm-9.3.jar -O $@
+	wget --no-use-server-timestamps https://repository.ow2.org/nexus/content/repositories/releases/org/ow2/asm/asm/$(ASM_VER)/$(ASM_JAR) -O $@
 
-PROTOBUF_JAVA_JAR=protobuf-java-3.21.12.jar
+PROTOBUF_JAVA_VER=3.21.12
+PROTOBUF_JAVA_JAR=protobuf-java-$(PROTOBUF_JAVA_VER).jar
 $(PROTOBUF_JAVA_JAR):
-	wget --no-use-server-timestamps https://repo1.maven.org/maven2/com/google/protobuf/protobuf-java/3.21.12/protobuf-java-3.21.12.jar -O $@
+	wget --no-use-server-timestamps https://repo1.maven.org/maven2/com/google/protobuf/protobuf-java/$(PROTOBUF_JAVA_VER)/$(PROTOBUF_JAVA_JAR) -O $@
 
 org/objectweb/asm: $(ASM_JAR)
 	unzip -D -o $< -d $(VENDOR)
