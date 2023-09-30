@@ -56,6 +56,11 @@ class Agent {
 								cw, action.getWhen(), current,
 								itr.getLogMethod());
 							break;
+						case FIELD_NEW:
+							cv = new FieldNewClassVisitor(
+								cw, action.getWhen(), current,
+								itr.getFieldNew());
+							break;
 						case NOOP:
 							cv = new NoopClassVisitor(
 								cw, action.getWhen(), current,

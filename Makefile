@@ -12,6 +12,7 @@ com/pimzero/jinterpose/Agent.class: \
 	com/pimzero/jinterpose/Proto.class \
 	com/pimzero/jinterpose/action/FieldInterpositionClassVisitor.class \
 	com/pimzero/jinterpose/action/LogMethodClassVisitor.class \
+	com/pimzero/jinterpose/action/FieldNewClassVisitor.class \
 	com/pimzero/jinterpose/action/NoopClassVisitor.class
 
 com/pimzero/jinterpose/Evaluator.class: \
@@ -28,6 +29,11 @@ com/pimzero/jinterpose/action/FieldInterpositionClassVisitor.class: \
 	org/objectweb/asm
 
 com/pimzero/jinterpose/action/LogMethodClassVisitor.class: \
+	com/pimzero/jinterpose/Evaluator.class \
+	com/pimzero/jinterpose/Proto.class \
+	org/objectweb/asm
+
+com/pimzero/jinterpose/action/FieldNewClassVisitor.class: \
 	com/pimzero/jinterpose/Evaluator.class \
 	com/pimzero/jinterpose/Proto.class \
 	org/objectweb/asm

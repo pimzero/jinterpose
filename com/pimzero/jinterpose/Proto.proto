@@ -67,6 +67,17 @@ message Action {
 		}
 
 		/*
+		 * Assign new object to the field
+		 *
+		 * src_name: name of the Field to replace
+		 * src_owner: class name of the Field to replace
+		 */
+		message DoFieldNew {
+			optional string src_name = 1;
+			optional string src_owner = 2;
+		}
+
+		/*
 		 * Do nothing. This is only to have an bare bones example of
 		 * instrumentation tool.
 		 */
@@ -77,6 +88,7 @@ message Action {
 			DoFieldInterposition field_interposition = 1;
 			DoLogMethod log_method = 2;
 			DoNoop noop = 3;
+			DoFieldNew field_new = 4;
 		}
 	}
 	optional Matcher_expr when = 1;
