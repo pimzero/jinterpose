@@ -27,8 +27,6 @@ class Agent {
 		var config = builder.build();
 
 		for (var action: config.getActionList()) {
-			System.out.println(action.toString());
-
 			inst.addTransformer(new ClassFileTransformer() {
 				public byte[] transform(ClassLoader loader,
 						String className,
