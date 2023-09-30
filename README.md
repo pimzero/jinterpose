@@ -3,7 +3,7 @@ JInterpose
 
 `LD_PRELOAD`, but for Java applications.
 
-This is a proof-of-concept.
+This is a proof-of-concept - there is a lot to do to be actually useful.
 
 This leverages the [Java Agent
 feature](https://docs.oracle.com/javase/9/docs/api/java/lang/instrument/package-summary.html)
@@ -32,10 +32,10 @@ tools. This has the following drawbacks:
 
 ## Example
 
-The initial goal of this project was to have a "pretty" dark-mode in bindiff.
-While the `-Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel` goes
-a long way, there are still a few gaps. See for instance the "Workspace"
-tab.
+The initial goal of this project was to have a "pretty" dark-mode in bindiff
+(although not needed anymore now that bindiff is opensource 😊). While the
+`-Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel` goes a long
+way, there are still a few gaps. See for instance the "Workspace" tab.
 
 ```
 $ java -Dawt.useSystemAAFontSettings=on \
