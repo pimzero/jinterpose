@@ -40,7 +40,7 @@ way, there are still a few gaps. See for instance the "Workspace" tab.
 ```
 $ java -Dawt.useSystemAAFontSettings=on \
        -Dswing.aatext=true \
-       -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel
+       -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel \
        -jar /opt/bindiff/bin/bindiff.jar
 ```
 
@@ -78,10 +78,10 @@ action {
 	}
 }
 $ # This is the same command as earlier, but with -javaagent:out/agent.jar=example.textproto to use the agent with the config
-$ java -javaagent:out/agent.jar=example.textproto
-       -Dawt.useSystemAAFontSettings=on
-       -Dswing.aatext=true
-       -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel
+$ java -javaagent:out/agent.jar=example.textproto \
+       -Dawt.useSystemAAFontSettings=on \
+       -Dswing.aatext=true \
+       -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel \
        -jar /opt/bindiff/bin/bindiff.jar
 ```
 
